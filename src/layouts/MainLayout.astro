@@ -12,10 +12,12 @@ const {
 ---
 
 <html lang="en">
-<MainHead {title} {description} />
-    <body>
-    <Navigation />
-        <slot> Default text </slot>
-    <Footer />
-    </body>
+<MainHead {title} {description}/>
+<body>
+<Navigation/>
+<main>
+    <slot> Default text</slot>
+</main>
+<Footer/>
+</body>
 </html>
