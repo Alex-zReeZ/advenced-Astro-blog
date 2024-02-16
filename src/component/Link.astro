@@ -1,11 +1,11 @@
 ---
-
-import { Icon } from "astro-icon/components";
+// library imports
+import { Icon } from "astro-icon";
 
 interface Props {
     text: string;
     href: string;
-    style: "primary" | "secondary";
+    styles: "primary" | "secondary";
     icon?: {
         name: string;
         side: "left" | "right";
@@ -18,30 +18,28 @@ interface Props {
 const {
     text,
     href,
-    style,
+    styles,
     icon,
     isFilled = true,
-    borderVisible= false,
+    borderVisible = false,
     classes,
     ...rest
 } = Astro.props as Props;
-
 ---
 
 <a href={href}
     class:list={[
         "link",
         classes,
-        style,
+        styles,
         { filled: isFilled, bordered: borderVisible }
     ]}
-   {...rest}
+    {...rest}
 >
-
     {
         icon && icon.side === "left" && (
                     <Icon name={icon.name} height="24" width="24" />
-                    )
+        )
     }
 
     <span>{text}</span>
@@ -51,5 +49,4 @@ const {
                     <Icon name={icon.name} height="24" width="24" />
         )
     }
-
 </a>
